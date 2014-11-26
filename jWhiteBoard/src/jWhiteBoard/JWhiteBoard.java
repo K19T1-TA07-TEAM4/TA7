@@ -260,7 +260,8 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
      * @throws Exception
      */
     public void go() throws Exception {
-        if(!noChannel && !useState)
+    	setTitle();
+    	if(!noChannel && !useState)
             channel.connect(groupName);
         mainFrame=new JFrame();
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -268,10 +269,10 @@ public class JWhiteBoard extends ReceiverAdapter implements ActionListener, Chan
         drawPanel.setBackground(backgroundColor);
         subPanel=new JPanel();
         mainFrame.getContentPane().add("Center", drawPanel);
-        clearButton=new JButton("Clean");
+        clearButton=new JButton("Clear");
         clearButton.setFont(defaultFont);
         clearButton.addActionListener(this);
-        leaveButton=new JButton("Exit");
+        leaveButton=new JButton("Leave");
         leaveButton.setFont(defaultFont);
         leaveButton.addActionListener(this);
         subPanel.add("South", clearButton);
